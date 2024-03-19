@@ -1,5 +1,5 @@
 POST http://localhost:4500/api/usuario
-Content-Type: "application/json"
+Content-Type: application/json
 
 {
     "nombre_usuario": "nelson.cabrera", 
@@ -9,3 +9,7 @@ Content-Type: "application/json"
     "apellido": "Cabrera"
 
 }
+
+GET http://localhost:4500/api/usuario/auth/nelson.cabrera/
+
+

@@ -1,5 +1,29 @@
 import {db} from "../db/conn.js"
 
+const getAuth = async (req, res)=>{
+
+    const {nombre_usuario, pass} = req.params;
+
+    const sql = `select nombre_usuario from tbl_usuarios
+                    where nombre_usuario = $1
+                    and contrasena = $2 `;
+
+
+    const result = await db.query(sql, [nombre_usuario, pass]);
+
+
+    if (result === 0){
+
+        res.status(404).json({mensaje: "usuario y contrasena no coinciden"})
+    } else{
+
+        res.json(result);
+
+    }
+
+
+}
+
 
 const postUsuario = async(req, res)=>{
 
@@ -139,4 +163,4 @@ const deleteUsuario = (req, res)=>{
 
 
 
-export {postUsuario, getUsuario, putUsuario, deleteUsuario, actualizarContrasena}
+export {postUsuario, getUsuario, putUsuario, deleteUsuario, actualizarContrasena, getAuth}

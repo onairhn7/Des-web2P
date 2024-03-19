@@ -8,10 +8,13 @@ import cors from 'cors';
 
 app.use(Express.json());
 const corOptions = {
-    origin : '10.0.0.130', 
-    methods : ['POST', 'PUT', 'DELETE', 'GET'],
+    origin : 'http://localhost:5173', 
+    credentials : true,
+    methods : ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
     allowedHeaders : ['Content-Type', 'Authorization']
 }
+
+app.use(cors(corOptions));
 
 // Rutas
 app.use('/api/usuario', usuario);

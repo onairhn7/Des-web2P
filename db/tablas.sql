@@ -26,6 +26,6 @@ create table tbl_usuarios
    constraint fk_id_rol FOREIGN key (id_rol) REFERENCES tbl_rol (id)
 );
 
-select * from tbl_rol; 
+select * from tbl_usuarios; 
 
 
